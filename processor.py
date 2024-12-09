@@ -2,14 +2,16 @@ import pandas as pd
 
 # Read the input CSV file
 input_file = 'input.csv'
+
 # Stage 1 output
 output_file1 = 'output1.csv'
 # Stage 2 output
 output_file2 = 'output2.csv'
 
+# Stage 1
+# Load the input CSV file
 df = pd.read_csv(input_file)
 
-# Stage 1
 # Calculate the sum of 'Score' for each 'Session'
 session_sums = df.groupby('Session')['Score'].sum().reset_index()
 session_sums.rename(columns={'Score': 'Sum'}, inplace=True)
@@ -25,7 +27,7 @@ df.to_csv(output_file1, index=False)
 print(f"Stage 1 process completed; output saved to {output_file1}")
 
 # Stage 2
-# Load the input CSV file
+# Load the output1 CSV file for 2nd stage
 data = pd.read_csv(output_file1)
 
 # Create the 'Point' column based on the condition
@@ -34,5 +36,4 @@ data['Point'] = data.apply(lambda row: row['Sum'] if pd.notnull(row['Sum']) and 
 
 # Save the result to a new CSV file (output2)
 data.to_csv(output_file2, index=False)
-
 print(f"Stage 2 process completed; output saved to {output_file2}")

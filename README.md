@@ -17,7 +17,7 @@ Raw data
 |94426159|18|
 |94426528|9|
 
-Stage 1 computation: add up score belongs to the same session
+Stage 1: add up score belongs to the same session
 
 |Session|Score|Sum|
 |:-:|:-:|:-:|
@@ -35,7 +35,7 @@ Stage 1 computation: add up score belongs to the same session
 |94426159|18||
 |94426528|9|9|
 
-Stage 2 computation: create Point; if Sum>Score then Point=Sum
+Stage 2: create Point; if Sum>Score then Point=Sum
 |Session|Score|Sum|Point|
 |:-:|:-:|:-:|:-:|
 |94313266|4|4||
